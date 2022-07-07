@@ -15,6 +15,7 @@
       crossorigin="anonymous"
     />
     <title>Quiz</title>
+    <link rel="stylesheet" href="./Css/styles.css">
   </head>
   <body>
     <div class="container m-5" id="start">
@@ -28,11 +29,16 @@
     </div>
 
     <!-- (B) QUIZ CONTAINER -->
-    <div class="container" id="quizBlock" style="display: none">
+    <div class="container " id="quizBlock" style="display: none">
       <div class="mb-5">
         <h2>Test your knowledge</h2>
-        - Time remaining <span id="time">01:00</span>
+        <!-- - You have <span id="time">10:00</span> minutes -->
       </div>
+      <div><span id="time">You have 45 seconds</span> 
+        <span id="score">score: </span>
+      </div><br>
+
+                
       <div id="quizWrap"></div>
 
       <div>
@@ -42,7 +48,7 @@
         <button type="button" class="btn btn-primary" id="btnReset">
           Reset Quiz
         </button>
-        <span id="score"></span>
+       
       </div>
     </div>
 

@@ -20,14 +20,23 @@
 *************************** */
 
 window.addEventListener('DOMContentLoaded', () => {
+ 
   const start = document.querySelector('#start');
   start.addEventListener('click', function (e) {
     document.querySelector('#quizBlock').style.display = 'block';
     start.style.display = 'none';
   });
+
+  const btnSubmitQ = document.querySelector('#btnSubmit')
+  const btnResetQ = document.querySelector('#btnReset')
+  const scoreQ = document.querySelector("#score")
+
+
   // quizArray QUESTIONS & ANSWERS
   // q = QUESTION, o = OPTIONS, a = CORRECT ANSWER
   // Basic ideas from https://code-boxx.com/simple-javascript-quiz/
+
+
   const quizArray = [
     {
       q: 'Which is the third planet from the sun?',
@@ -40,17 +49,29 @@ window.addEventListener('DOMContentLoaded', () => {
       a: 3,
     },
     {
-      q: 'What is the capital of Australia',
+      q: 'What is the capital of Australia?',
       o: ['Sydney', 'Canberra', 'Melbourne', 'Perth'],
       a: 1,
     },
+    {
+      q: 'What is our Galaxy called?',
+      o: ['Max Well', 'Milky Way', 'No way', 'Way'],
+      a: 1,
+    },
+    {
+      q: 'What does a Cat eat?',
+      o: ['Mice', 'Crums', 'Who Knows', 'None'],
+      a: 0,
+    }
   ];
 
+  console.log(quizArray)
+  
   // function to Display the quiz questions and answers from the object
   const displayQuiz = () => {
     const quizWrap = document.querySelector('#quizWrap');
     let quizDisplay = '';
-    quizArray.map((quizItem, index) => {
+    quizArray.forEach((quizItem, index) => {
       quizDisplay += `<ul class="list-group">
                    Q - ${quizItem.q}
                     <li class="list-group-item mt-2" id="li_${index}_0"><input type="radio" name="radio${index}" id="radio_${index}_0"> ${quizItem.o[0]}</li>
@@ -60,31 +81,60 @@ window.addEventListener('DOMContentLoaded', () => {
                     </ul>
                     <div>&nbsp;</div>`;
       quizWrap.innerHTML = quizDisplay;
+
     });
   };
 
+
+  // timer function 
+  let timeleft = 45;
+  let downloadTimer = setInterval(function(){
+    if(timeleft <= 0){
+      clearInterval(downloadTimer);
+      document.getElementById("time").innerHTML = "Time is up";
+    } else {
+      document.getElementById("time").innerHTML = timeleft + " seconds remaining";
+    }
+    timeleft -= 1;
+  }, 1000);
+
+
+
+ 
   // Calculate the score
   const calculateScore = () => {
     let score = 0;
     quizArray.map((quizItem, index) => {
-      for (let i = 0; i < 4; i++) {
+      for (let i = 0; i < 6; i++) {
         //highlight the li if it is the correct answer
         let li = `li_${index}_${i}`;
         let r = `radio_${index}_${i}`;
         liElement = document.querySelector('#' + li);
         radioElement = document.querySelector('#' + r);
 
-        if (quizItem.a == i) {
+        if (quizItem.a == i ) {
           //change background color of li element here
+          liElement.style.backgroundColor = "green";
         }
 
-        if (radioElement.checked) {
+        if (radioElement.checked && quizItem.a == i ) {
           // code for task 1 goes here
-        }
+             score++
       }
+    }
     });
+    scoreQ.innerHTML = `Total score = ${score}`
+     
   };
 
   // call the displayQuiz function
   displayQuiz();
+
+//reset when the reset button is clicked
+btnResetQ.addEventListener('click', () => window.location.reload())
+//When submit button is clicked it calulates score and displays it
+btnSubmitQ.addEventListener('click', calculateScore)
+
 });
+
+  
