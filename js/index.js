@@ -23,8 +23,8 @@ window.addEventListener('DOMContentLoaded', () => {
  
   const start = document.querySelector('#start');
   start.addEventListener('click', function (e) {
-    document.querySelector('#quizBlock').style.display = 'block';
-    start.style.display = 'none';
+  document.querySelector('#quizBlock').style.display = 'block';
+  start.style.display = 'none';
   });
 
   const btnSubmitQ = document.querySelector('#btnSubmit')
@@ -100,12 +100,11 @@ window.addEventListener('DOMContentLoaded', () => {
   }, 1000);
 
 
+  let score = 0;
 
- 
   // Calculate the score
   const calculateScore = () => {
-    let score = 0;
-    let totalScore = (score / 5) * 100;
+ 
     quizArray.map((quizItem, index) => {
       for (let i = 0; i < 4; i++) {
         //highlight the li if it is the correct answer
@@ -130,8 +129,13 @@ window.addEventListener('DOMContentLoaded', () => {
     }
           }
     });
-    scoreQ.innerHTML = `Thank you for taking the test your score is ${totalScore} % `
 
+    if(score < 3){
+    scoreQ.innerHTML = `Your score is ${score}. Try the quiz again. `
+  } else {
+    scoreQ.innerHTML = `Your score is ${score}.  You are knowledgeable.`
+
+  }
      
   };
 
