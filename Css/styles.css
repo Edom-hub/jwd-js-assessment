@@ -2,32 +2,57 @@ body {
     background-color: #CCD2C9;
 
 }
+/* card itself */
+#cardI{
+    height: 20rem;
+    background-color:#E06666;
+}
+/* start button  */
 #startbtn{
     background-color: #6AA84F ;
     border-radius: none;
     border: none;
     padding: 0.5em 2em;
+    margin-top: 4.5em;
+    margin-left: 2em;
 }
+/* for cart title */
 #card-title{
-    color: #93C47D;
-
+    font-size: 36px;
+    margin-left: 0.5em;
+    margin-top: 0.5em;
+    color: white
 }
+/* for quiz description */
+#QuizDesc{
+    width: 100%;
+    margin-left: 2em;
+    color: white
+   
+}
+/* submit button */
 #btnSubmit{
     background-color: #3A6D23;
     border-radius: none;
     border: none;
+    margin-right: 2em ;
+    margin-bottom: 5em;
 }
+/* reset button */
 #btnReset{
     background-color: #E06666;
     border-radius: none;
     border: none;
+    margin-left: 2em ;
+    margin-bottom: 5em;
 }
-
+/* countdown timer */
 #time{
     background-color: #93C47D;
     color: white;
     padding: 0.5em;
 }
+/* these are classes for the question */
 .greybg{
     background-color: #04ae97;
     margin-left: 0.3em;
@@ -38,11 +63,3 @@ body {
    
 }
 
-#btnSubmit{
-    margin-right: 2em ;
-    margin-bottom: 5em;
-}
-#btnReset{
-    margin-left: 2em ;
-    margin-bottom: 5em;
-}
