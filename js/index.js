@@ -32,6 +32,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const scoreQ = document.querySelector("#score")
 
 
+
   // quizArray QUESTIONS & ANSWERS
   // q = QUESTION, o = OPTIONS, a = CORRECT ANSWER
   // Basic ideas from https://code-boxx.com/simple-javascript-quiz/
@@ -72,12 +73,12 @@ window.addEventListener('DOMContentLoaded', () => {
     const quizWrap = document.querySelector('#quizWrap');
     let quizDisplay = '';
     quizArray.forEach((quizItem, index) => {
-      quizDisplay += `<ul class="list-group">
+      quizDisplay += `<ul class="list-group greybg">
                    Q - ${quizItem.q}
-                    <li class="list-group-item mt-2" id="li_${index}_0"><input type="radio" name="radio${index}" id="radio_${index}_0"> ${quizItem.o[0]}</li>
-                    <li class="list-group-item" id="li_${index}_1"><input type="radio" name="radio${index}" id="radio_${index}_1"> ${quizItem.o[1]}</li>
-                    <li class="list-group-item"  id="li_${index}_2"><input type="radio" name="radio${index}" id="radio_${index}_2"> ${quizItem.o[2]}</li>
-                    <li class="list-group-item"  id="li_${index}_3"><input type="radio" name="radio${index}" id="radio_${index}_3"> ${quizItem.o[3]}</li>
+                    <li class="list-group-item listbg mt-2" id="li_${index}_0"><input type="radio" name="radio${index}" id="radio_${index}_0"> ${quizItem.o[0]}</li>
+                    <li class="list-group-item listbg" id="li_${index}_1"><input type="radio" name="radio${index}" id="radio_${index}_1"> ${quizItem.o[1]}</li>
+                    <li class="list-group-item listbg"  id="li_${index}_2"><input type="radio" name="radio${index}" id="radio_${index}_2"> ${quizItem.o[2]}</li>
+                    <li class="list-group-item listbg"  id="li_${index}_3"><input type="radio" name="radio${index}" id="radio_${index}_3"> ${quizItem.o[3]}</li>
                     </ul>
                     <div>&nbsp;</div>`;
       quizWrap.innerHTML = quizDisplay;
@@ -104,8 +105,9 @@ window.addEventListener('DOMContentLoaded', () => {
   // Calculate the score
   const calculateScore = () => {
     let score = 0;
+    let totalScore = (score / 5) * 100;
     quizArray.map((quizItem, index) => {
-      for (let i = 0; i < 6; i++) {
+      for (let i = 0; i < 4; i++) {
         //highlight the li if it is the correct answer
         let li = `li_${index}_${i}`;
         let r = `radio_${index}_${i}`;
@@ -114,16 +116,22 @@ window.addEventListener('DOMContentLoaded', () => {
 
         if (quizItem.a == i ) {
           //change background color of li element here
-          liElement.style.backgroundColor = "green";
+          liElement.style.backgroundColor = "#71CA33";
         }
 
         if (radioElement.checked && quizItem.a == i ) {
           // code for task 1 goes here
              score++
+             console.log(score)
       }
+      if (radioElement.checked && !quizItem.a == i ) {
+        
+        liElement.style.backgroundColor = "#EA9999";
     }
+          }
     });
-    scoreQ.innerHTML = `Total score = ${score}`
+    scoreQ.innerHTML = `Thank you for taking the test your score is ${totalScore} % `
+
      
   };
 
@@ -132,7 +140,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 //reset when the reset button is clicked
 btnResetQ.addEventListener('click', () => window.location.reload())
-//When submit button is clicked it calulates score and displays it
+//When submit button is clicked it calulatesscore function is called and score is displayed
 btnSubmitQ.addEventListener('click', calculateScore)
 
 });

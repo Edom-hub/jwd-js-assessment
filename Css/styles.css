@@ -1,0 +1,48 @@
+body {
+    background-color: #CCD2C9;
+
+}
+#startbtn{
+    background-color: #6AA84F ;
+    border-radius: none;
+    border: none;
+    padding: 0.5em 2em;
+}
+#card-title{
+    color: #93C47D;
+
+}
+#btnSubmit{
+    background-color: #3A6D23;
+    border-radius: none;
+    border: none;
+}
+#btnReset{
+    background-color: #E06666;
+    border-radius: none;
+    border: none;
+}
+
+#time{
+    background-color: #93C47D;
+    color: white;
+    padding: 0.5em;
+}
+.greybg{
+    background-color: #04ae97;
+    margin-left: 0.3em;
+   
+}
+.listbg{
+    background-color: #CCCCCC;
+   
+}
+
+#btnSubmit{
+    margin-right: 2em ;
+    margin-bottom: 5em;
+}
+#btnReset{
+    margin-left: 2em ;
+    margin-bottom: 5em;
+}
