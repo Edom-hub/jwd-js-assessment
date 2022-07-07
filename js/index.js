@@ -113,22 +113,32 @@ window.addEventListener('DOMContentLoaded', () => {
         liElement = document.querySelector('#' + li);
         radioElement = document.querySelector('#' + r);
 
-        if (quizItem.a == i ) {
-          //change background color of li element here
-          liElement.style.backgroundColor = "#71CA33";
-        }
+        // if (quizItem.a == i ) {
+        //   //change background color of li element here
+        //   liElement.style.backgroundColor = "#71CA33";
+        // }
 
-        if (radioElement.checked && quizItem.a == i ) {
-          // code for task 1 goes here
-             score++
-             console.log(score)
+        
+          if(quizItem.a == i){
+            if (radioElement.checked ) {
+          liElement.style.backgroundColor = "#71CA33";
+          score++;
+        }
       }
-      if (radioElement.checked && !quizItem.a == i ) {
+
+        
+
+      if (radioElement.checked ) {
+        if(quizItem.a !== i){
         
         liElement.style.backgroundColor = "#EA9999";
+      }
     }
+
           }
-    });
+        });
+
+        clearInterval(downloadTimer);
 
     if(score < 3){
     scoreQ.innerHTML = `Your score is ${score}. Try the quiz again. `
@@ -136,11 +146,12 @@ window.addEventListener('DOMContentLoaded', () => {
     scoreQ.innerHTML = `Your score is ${score}.  You are knowledgeable.`
 
   }
-     
+
   };
 
   // call the displayQuiz function
   displayQuiz();
+  
 
 //reset when the reset button is clicked
 btnResetQ.addEventListener('click', () => window.location.reload())
