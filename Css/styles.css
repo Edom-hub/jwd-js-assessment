@@ -1,24 +1,31 @@
 body {
     background-color: #CCD2C9;
-
+    background-image: url(/resource/images/josh-hild-jdTdvF6fDus-unsplash.jpg);
+    background-size: cover;
 }
 /* card itself */
 #cardI{
     height: 20rem;
-    background-color:#E06666;
+    background-color:#70838b;
+    margin: 30em;
+
+    
 }
 /* start button  */
 #startbtn{
-    background-color: #6AA84F ;
+    background-color: #000000 ;
     border-radius: none;
     border: none;
     padding: 0.5em 2em;
-    margin-top: 4.5em;
-    margin-left: 2em;
+    margin-top: 3em;
+    margin-right: 1.2em;
+
+    float: right;
 }
 /* for cart title */
 #card-title{
     font-size: 36px;
+    text-transform: uppercase;
     margin-left: 0.5em;
     margin-top: 0.5em;
     color: white
@@ -26,13 +33,15 @@ body {
 /* for quiz description */
 #QuizDesc{
     width: 100%;
-    margin-left: 2em;
+    margin-top: 2em;
+    margin-left:2em;
+    font-weight: lighter;
     color: white
    
 }
 /* submit button */
 #btnSubmit{
-    background-color: #3A6D23;
+    background-color: #d49e20;
     border-radius: none;
     border: none;
     margin-right: 2em ;
@@ -48,18 +57,26 @@ body {
 }
 /* countdown timer */
 #time{
-    background-color: #93C47D;
+    background-color: #6d8cab;
     color: white;
     padding: 0.5em;
+    width: 100%;
+    margin-top: 3em;
 }
 /* these are classes for the question */
 .greybg{
-    background-color: #04ae97;
+    background-color: #2d4665;
     margin-left: 0.3em;
+    color: white;
+    padding: 2em;
    
 }
 .listbg{
-    background-color: #CCCCCC;
+    background-color: #8b909a;
    
 }
-
+#score{
+    color: white;
+    margin-left: 2em;
+    margin-top: 5em;
+}
